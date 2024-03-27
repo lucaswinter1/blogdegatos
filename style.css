@@ -1,0 +1,227 @@
+/* ---------CONFIGURAÇÕES INICIAIS DO PROJETO */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+:root{
+    font-size: 62.5%;
+
+    --primary-ff: "Mulish", sans-serif;
+    --input-fs: 1.6rem;
+    --input-fw: 600;
+    --h1-fs: 2.4rem;
+    --h1-fw: 700;
+    --p-fs: 1.6rem;
+    --aside-p-fs: 1.4rem;
+
+    --hue: 200;
+    --color-base-white: hsl(0, 0%, 100%);
+    --color-base-gray-100: hsl(0, 0%, 96%);
+    --color-base-gray-300: hsl(var(--hue), 60%, 58%);
+    --color-base-gray-500: hsl(0, 0%, 24%);
+    --color-base-gray-900: hsl(var(--hue), 60%, 40%);
+    --color-base-black-900: hsl(240, 5%, 7%);
+}
+
+html, body, input, footer{
+    font-family: var(--primary-ff);
+    color: #121214;
+}
+
+body{
+    font-size: 1.6rem;
+    display: grid; 
+    grid-template-rows: max-content 1fr 1fr max-content;
+    height: 100vh;
+  }
+
+/* ---------ESTILIZAÇÃO DO HEADER */
+
+header{
+    display: flex;
+    align-items: center;
+    gap: 2.5rem;
+    background-color: var(--color-base-gray-900);
+    padding: 1.6rem 2.8rem;
+}
+
+header .avatar{
+    height: 4.0rem;
+    border-radius: 50%;
+}
+
+header input{
+    height: 4.0rem;
+    padding: 1.2rem 1.4rem;
+    background-color: var(--color-base-gray-300);
+    border-radius: .4rem;
+    border: 0;
+    font-size: var(--input-fs);
+    color: var(--content-bg);
+    font-family: var(--primary-ff);
+    font-weight: 600;
+    flex: 1;
+}
+
+header input::placeholder{
+    color: var(--color-base-white);
+}
+
+header input:focus-visible{
+    outline: none;
+}
+
+/* ---------ESTILIZAÇÃO DO ARTICLE */
+
+article .cover{
+    width: 100%;
+    aspect-ratio: 16/9;
+    object-fit: cover;
+}
+
+article .article-title{
+    padding: 3rem 2.4rem;
+}
+
+h1{
+    font-size: var(--h1-fs);
+}
+
+p{
+    padding: 0 2.4rem;
+    font-size: var(--p-fs);
+}
+
+.rate{
+    display: flex;
+    gap: 1.2rem;
+    margin-top: .8rem;
+}
+
+article button{
+    background-color: var(--color-base-gray-900);
+    border: none;
+    border-radius: 50%;
+    height: 4.0rem;
+    width: 4.0rem;
+}
+
+article button img{
+    height: 2rem;
+    width: 2rem;
+    object-fit: contain;
+}
+
+/* ---------ESTILIZAÇÃO DO ASIDE */
+
+aside{
+    display: flex;
+    flex-direction: column;
+    gap: 3.2rem;
+    padding: 0 2.4rem;
+    margin-top: 3.4rem;
+}
+
+aside figure{
+    display: grid;
+    grid-template-areas: 
+    "A B"
+    "A C";
+    gap: 0 1.6rem;
+    grid-template-columns: min(35vw, 15.1rem);
+    align-items: center;
+}
+
+figure figcaption p{
+    padding: .7rem 0;
+}
+
+figure img{
+    grid-area: A;
+    height: 8.4rem;
+    aspect-ratio: 16/9;
+    object-fit: cover;
+    border-radius: .5rem;
+}
+
+figure legend{
+    grid-area: B;
+    font-size: 1.8rem;
+    font-weight: 700;
+    line-height: 160%;
+}
+
+figure p{
+    grid-area: C;
+    font-size: 1.4rem;
+    line-height: 160%;
+}
+
+/* ---------ESTILIZAÇÃO DO FOOTER */
+
+footer{
+    grid-area: footer;
+    background-color: var(--color-base-gray-900);
+    text-align: center;
+    padding: 1.6rem;
+    line-height: 2rem;
+    color: var(--color-base-white);
+}
+
+@media (min-width: 900px) {
+    #app{
+        display: grid;
+        grid-template-areas: 
+        "header header header header"
+        "article article article aside"
+        "footer footer footer footer";
+    }
+
+    header{
+        grid-area: header;
+        padding: 1.6rem 11rem;
+    }
+
+    article{
+        grid-area: article;
+        margin: 4rem 3.4rem 4rem 11rem;
+    }
+
+    .article-title{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    aside{
+        grid-area: aside;
+        margin-right: 11rem;
+    }
+
+    footer{
+        grid-area: footer;
+    }
+
+    article img{
+        border-radius: .5rem;
+    }
+
+
+}
+
+
+/*
+#app{
+    display: grid;
+    grid-template-areas: 
+    "header header"
+    "main aside"
+    "footer footer";
+    grid-template-rows: max-content 1fr max-content;
+}
+*/
